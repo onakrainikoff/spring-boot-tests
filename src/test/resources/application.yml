@@ -1,0 +1,11 @@
+external.url: http://localhost:8081
+db:
+  jdbcUrl: 'jdbc:postgresql://${docker.host}:${postgres.port}/postgres'
+  username: 'postgres'
+  password: 'postgres'
+  driverClassName: 'org.postgresql.Driver'
+  minimumIdle: 5
+  maximumPoolSize: 10
+  connectionTimeout: 10000
+  validationTimeout: 5000
+  connectionTestQuery: 'SELECT 1'
