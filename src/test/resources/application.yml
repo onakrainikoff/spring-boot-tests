@@ -1,6 +1,8 @@
+spring:
+  profiles:
+    active: tests-local
 external.url: http://localhost:8081
 db:
-  jdbcUrl: 'jdbc:postgresql://${docker.host}:${postgres.port}/postgres'
   username: 'postgres'
   password: 'postgres'
   driverClassName: 'org.postgresql.Driver'
@@ -9,3 +11,18 @@ db:
   connectionTimeout: 10000
   validationTimeout: 5000
   connectionTestQuery: 'SELECT 1'
+
+---
+spring:
+  config:
+    activate:
+      on-profile: tests-local
+db:
+  jdbcUrl: 'jdbc:postgresql://localhost:5432/postgres'
+---
+spring:
+  config:
+    activate:
+      on-profile: tests-remote
+db:
+  jdbcUrl: 'jdbc:postgresql://${postgres.host}:${postgres.port}/postgres'

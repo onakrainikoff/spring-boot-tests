@@ -1,9 +1,13 @@
 package ru.on8off.spring.boot.tests.controller.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.on8off.spring.boot.tests.repository.entity.Element;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ElementDto {
     private Integer id;
     private String name;

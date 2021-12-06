@@ -1,6 +1,8 @@
 package ru.on8off.spring.boot.tests.repository.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -8,6 +10,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "elements")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Element {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

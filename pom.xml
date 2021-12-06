@@ -96,6 +96,8 @@
             </activation>
             <properties>
                 <docker_port>2375</docker_port>
+                <postgres_port>5432</postgres_port>
+
             </properties>
             <build>
                 <plugins>
@@ -111,8 +113,9 @@
                         </executions>
                         <configuration>
                             <environmentVariables>
-                                <postgres.port>${postgres.port}</postgres.port>
-                                <docker.host>${docker_host}</docker.host>
+                                <spring.profiles.active>tests-remote</spring.profiles.active>
+                                <postgres_host>${docker_host}</postgres_host>
+                                <postgres_port>${postgres_port}</postgres_port>
                             </environmentVariables>
                         </configuration>
                     </plugin>
@@ -151,7 +154,7 @@
                                         </env>
 
                                         <ports>
-                                            <port>postgres.port:5432</port>
+                                            <port>${postgres_port}:5432</port>
                                         </ports>
 
                                         <wait>
