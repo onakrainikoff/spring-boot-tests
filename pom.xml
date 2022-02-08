@@ -91,13 +91,14 @@
             <id>it</id>
             <activation>
                 <property>
-                    <name>docker_host</name>
+                    <name>it</name>
+                    <value>true</value>
                 </property>
             </activation>
             <properties>
                 <docker_port>2375</docker_port>
+                <postgres_host>0.0.0.0</postgres_host>
                 <postgres_port>5432</postgres_port>
-
             </properties>
             <build>
                 <plugins>
@@ -114,7 +115,7 @@
                         <configuration>
                             <environmentVariables>
                                 <spring.profiles.active>tests-remote</spring.profiles.active>
-                                <postgres_host>${docker_host}</postgres_host>
+                                <postgres_host>${postgres_host}</postgres_host>
                                 <postgres_port>${postgres_port}</postgres_port>
                             </environmentVariables>
                         </configuration>
@@ -141,7 +142,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <dockerHost>tcp://${docker_host}:${docker_port}</dockerHost>
+                            <dockerHost>${docker_host}</dockerHost>
                             <images>
                                 <image>
                                     <name>postgres:11</name>
